@@ -1,0 +1,9 @@
+<% @books.each do |post_image| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+  <% end %>
+  <p>：<%= image_tag('') %></p>
+  <p>Title：<%= book.title %></p>
+  <p>Opinion：<%= book.body %></p>
+</div>
+<% end %>
