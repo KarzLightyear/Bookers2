@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/a334d13857.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -15,39 +16,58 @@
         <div class="container">
           <a class="navbar-brand" href="/">
             <span>Bookers</span>
-          </a>  
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to 'Home',  "/" %>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+              <li>
+                <a class="fas fa-home nav-link text-light" href="/">
+                  Home
+                </a>
               </li>
-              <li class="nav-item ">
-                <%= link_to "Books", books_path %>
+              <li>
+                <a class="fas fa-users nav-link text-light" href="/users">
+                  Users
+                </a>
               </li>
-              <li class="nav-item">
-                <%= link_to 'Users', user_path(current_user.id) %>
+              <li>
+                <a class="fas fa-book-open nav-link text-light" href="/books">
+                  Books
+                </a>
               </li>
-              <li class="nav-item">
-                <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              <li>
+                <a class="fas fa-sign-in-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
+                  logout
+                </a>
               </li>
             <% else %>
-              <li class="nav-item">
-                <%= link_to 'Home', "/" %>
+             <li>
+                <a class="fas fa-home nav-link text-light" href="/">
+                  Home
+                </a>
               </li>
-              <li class="nav-item">
-                <%= link_to 'About', "home" %>
+              <li>
+                <a class="fas fa-link nav-link text-light" href="home/about">
+                  About</a>
               </li>
-              <li class="nav-item">
-                <%= link_to "sign up", new_user_registration_path %>
+              <li>
+                <a class="fas fa-user-plus nav-link text-light" href="/users/sign_up">
+                  sign up
+                </a>
               </li>
-              <li class="nav-item">
-                <%= link_to "login", new_user_session_path %>
+              <li>
+                <a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in">
+                  login
+                </a>
               </li>
             <% end %>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
       <%= yield %>
-    
+
     <footer>
       <div class="container mt-5">
         <div class="row">
