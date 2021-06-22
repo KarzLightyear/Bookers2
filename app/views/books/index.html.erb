@@ -5,6 +5,13 @@
 
 <main>
   <div class="container px-5 px-sm-0">
+    <% if @book_new.errors.any? %>
+      <p style="color: red;"><%= @book_new.errors.count %>errors prohibited this obj from being saved:</br>
+      <% @book_new.errors.full_messages.each do |message| %>
+        <%= message %>
+        </br>
+      <% end %>
+    <% end %>
     <div class="row">
       <%= render 'books/list', book: @book_new %>
             

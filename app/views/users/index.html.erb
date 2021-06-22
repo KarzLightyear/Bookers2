@@ -22,15 +22,13 @@
             <% @users.each do |user| %>
             <tr>
               <td>
-                <%= link_to user_path(@user) do %>
                 <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', size: "40x40", fallback: "no_image.jpg" %>
-                <% end %>
               </td>
               <td>
                 <%= user.name %>
               </td>
               <td>
-                <%= link_to 'show', user_path(@user.id) %>
+                <%= link_to 'Show', user_path(user.id) %>
               </td>
             </tr>
             <% end %>
